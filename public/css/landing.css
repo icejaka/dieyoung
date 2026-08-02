@@ -83,6 +83,24 @@ button { font-family: inherit; }
   mix-blend-mode: overlay;
 }
 
+.cursor-spot {
+  position: fixed;
+  z-index: 3;
+  width: 420px;
+  height: 420px;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  filter: blur(4px);
+}
+body.pointer-active .cursor-spot { opacity: 1; }
+@media (hover: none) { .cursor-spot { display: none; } }
+
 /* ---------- topbar ---------- */
 
 .topbar {
