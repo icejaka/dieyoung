@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>glass — invite only</title>
+<meta name="description" content="a private link, one login away." />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/landing.css" />
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-glow" id="bg-glow"></div>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <div class="brand">glass</div>
+    <div class="status"><span class="status-pulse"></span> invite only</div>
+  </header>
+
+  <main class="gate">
+    <h1 class="headline">
+      <span class="line">you need to be</span>
+      <span class="line">let in<span class="cursor-blink" aria-hidden="true">_</span></span>
+    </h1>
+    <p class="sub" id="sub">one private link, one login away from the internet you actually care about.</p>
+
+    <form class="terminal" id="invite-form" autocomplete="off">
+      <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+      <input
+        id="invite-input"
+        name="code"
+        type="text"
+        placeholder="enter invite code"
+        spellcheck="false"
+        autocapitalize="off"
+        aria-label="invite code"
+      />
+      <button type="submit" class="terminal-btn">unlock</button>
+    </form>
+    <p class="terminal-msg" id="terminal-msg" aria-live="polite">&nbsp;</p>
+
+    <p class="no-code">no code yet? <a href="#" id="dm-link" target="_blank" rel="noopener noreferrer">dm on discord</a>.</p>
+  </main>
+
+  <section class="ledger" aria-labelledby="ledger-heading">
+    <div class="ledger-head">
+      <h2 id="ledger-heading">who's already in</h2>
+      <span class="ledger-count" id="ledger-count"></span>
+    </div>
+    <div class="ledger-rows" id="ledger-rows"></div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-brand" id="foot-brand">glass</div>
+    <div class="foot-legal">a private link, made for people we actually like.</div>
+  </footer>
+
+  <script src="/js/landing.js"></script>
+</body>
+</html>

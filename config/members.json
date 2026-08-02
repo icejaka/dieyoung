@@ -1,0 +1,6 @@
+[
+  { "uid": "0000", "handle": "yourname", "url": "/profile.html" },
+  { "uid": "0001", "handle": "friend-one", "url": "https://example.com" },
+  { "uid": "0002", "handle": "friend-two", "url": "https://example.com" },
+  { "uid": "0003", "handle": "friend-three", "url": "https://example.com" }
+]

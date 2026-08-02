@@ -1,0 +1,37 @@
+{
+  "username": "yourname",
+  "displayName": "your name",
+  "tagline": "digital gremlin  //  night owl  //  always online",
+  "typedLines": [
+    "welcome to my corner of the internet",
+    "probably listening to something too loud",
+    "click a link, say hi"
+  ],
+  "avatar": "https://api.dicebear.com/9.x/identicon/svg?seed=glass&backgroundType=gradientLinear",
+  "status": "online",
+  "location": "somewhere online",
+  "accent": "#8b7dfb",
+  "accent2": "#5ee7d0",
+  "background": {
+    "type": "gradient",
+    "value": ""
+  },
+  "audio": {
+    "enabled": true,
+    "title": "lofi to code / vibe to",
+    "url": ""
+  },
+  "socials": [
+    { "label": "Discord", "url": "https://discord.com", "icon": "discord" },
+    { "label": "X", "url": "https://x.com", "icon": "x" },
+    { "label": "GitHub", "url": "https://github.com", "icon": "github" },
+    { "label": "Instagram", "url": "https://instagram.com", "icon": "instagram" },
+    { "label": "Twitch", "url": "https://twitch.tv", "icon": "twitch" }
+  ],
+  "links": [
+    { "label": "My other site", "url": "https://example.com", "icon": "link" },
+    { "label": "Commissions / shop", "url": "https://example.com", "icon": "cart" },
+    { "label": "YouTube", "url": "https://youtube.com", "icon": "youtube" }
+  ],
+  "badges": ["og", "verified", "premium"]
+}
