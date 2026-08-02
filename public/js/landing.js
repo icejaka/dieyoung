@@ -97,6 +97,14 @@ function revealRows() {
     { threshold: 0.15 }
   );
   rows.forEach((r) => io.observe(r));
+  
+  if (!members.length) {
+    count.textContent = '';
+    rows.innerHTML = '<div class="ledger-empty">no one rn</div>';
+    return;
+  }
+
+  count.textContent = `${members.length} member${members.length === 1 ? '' : 's'}`;
 }
 
 // ---------- invite prompt ----------
@@ -143,13 +151,41 @@ function initInviteForm() {
 }
 
 // ---------- ambient cursor glow (matches the profile card's world) ----------
-function initAmbient() {
+function initSpatial() {
   const glow = document.getElementById('bg-glow');
+  const spot = document.getElementById('cursor-spot');
+  const terminal = document.getElementById('invite-form');
+
   window.addEventListener('pointermove', (e) => {
+    document.body.classList.add('pointer-active');
+
     const xPct = (e.clientX / window.innerWidth) * 100;
     const yPct = (e.clientY / window.innerHeight) * 100;
     glow.style.setProperty('--gx', xPct + '%');
     glow.style.setProperty('--gy', yPct + '%');
+
+    spot.style.left = e.clientX + 'px';
+    spot.style.top = e.clientY + 'px';
+
+    const rect = terminal.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / rect.width;
+    const dy = (e.clientY - cy) / rect.height;
+    const inside = e.clientX > rect.left && e.clientX < rect.right && e.clientY > rect.top && e.clientY < rect.bottom;
+
+    if (inside) {
+      terminal.style.transform = `rotateY(${dx * 5}deg) rotateX(${-dy * 5}deg)`;
+      terminal.style.setProperty('--tx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+      terminal.style.setProperty('--ty', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+    } else {
+      terminal.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    }
+  });
+
+  window.addEventListener('pointerleave', () => {
+    document.body.classList.remove('pointer-active');
+    terminal.style.transform = 'rotateY(0deg) rotateX(0deg)';
   });
 }
 
@@ -157,5 +193,5 @@ document.addEventListener('DOMContentLoaded', () => {
   loadSite();
   loadMembers();
   initInviteForm();
-  initAmbient();
+  initSpatial();
 });
