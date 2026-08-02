@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>loading…</title>
+<meta name="description" content="glass biolink profile" />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ambient spatial background -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-glow" id="bg-glow"></div>
+  <div class="grain"></div>
+
+  <!-- cursor spotlight -->
+  <div class="cursor-spot" id="cursor-spot"></div>
+
+  <main class="stage">
+    <section class="card" id="card">
+
+      <div class="card-sheen"></div>
+
+      <header class="card-top">
+        <div class="avatar-wrap">
+          <img id="avatar" class="avatar" alt="" />
+          <span class="status-dot" id="status-dot"></span>
+        </div>
+
+        <h1 class="display-name" id="display-name">&nbsp;</h1>
+        <div class="username" id="username">&nbsp;</div>
+
+        <div class="badges" id="badges"></div>
+
+        <p class="tagline" id="tagline">&nbsp;</p>
+        <p class="typed-line" id="typed-line" aria-live="polite">&nbsp;</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <nav class="socials" id="socials" aria-label="social links"></nav>
+
+      <div class="links" id="links"></div>
+
+      <footer class="card-foot">
+        <div class="views" id="views">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <span id="views-count">0</span> views
+        </div>
+        <div class="footer-brand">glass</div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- floating audio control -->
+  <div class="player" id="player" hidden>
+    <button class="player-btn" id="player-btn" aria-label="play audio" aria-pressed="false">
+      <svg id="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <div class="player-meta">
+      <div class="player-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <span class="player-title" id="player-title">audio</span>
+    </div>
+  </div>
+  <audio id="audio-el" loop preload="none"></audio>
+
+  <button class="enter-veil" id="enter-veil">
+    <span>tap to enter</span>
+  </button>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
